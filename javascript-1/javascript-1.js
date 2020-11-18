@@ -178,7 +178,14 @@ const classes = [
 
 //CODE HERE
 
-  
+
+classes.forEach(e => {
+    for(let key in e) {
+        if(e[key]) {
+            e[key] = false
+        }
+    }
+})
 ////////////////////PROBLEM 10////////////////////
 /*
     Use nested for loops to compare the letters in the lettersToPair array below.
