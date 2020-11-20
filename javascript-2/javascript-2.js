@@ -36,7 +36,9 @@ let foods = [
 */
 
 //CODE HERE
-
+foods.forEach((e, i, a) => {
+  return e.calories = e.carbs * 4
+})
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -81,6 +83,9 @@ const products = [
 */
 
 //CODE HERE
+const saleProducts = products.map((e, i, a) => {
+  return e.prices = e.prices * .75
+})
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -91,7 +96,11 @@ const products = [
 */
 
 //CODE HERE
-
+const blueProducts = saleProducts.filter((e, i, a) => {
+  if(e.color[0] == 'blue' || e.color[1] == 'blue') {
+    return e
+  }
+})
 ////////////////////PROBLEM 4////////////////////
 /*
   Now you'd like to get them their order total. 
