@@ -84,7 +84,8 @@ const products = [
 
 //CODE HERE
 const saleProducts = products.map((e, i, a) => {
-  return e.prices = e.prices * .75
+   e.price = e.price * .75
+   return e
 })
 
 ////////////////////PROBLEM 3////////////////////
@@ -97,10 +98,12 @@ const saleProducts = products.map((e, i, a) => {
 
 //CODE HERE
 const blueProducts = saleProducts.filter((e, i, a) => {
-  if(e.color[0] == 'blue' || e.color[1] == 'blue') {
+  if(e.color.includes('blue')) {
     return e
   }
+  
 })
+console.log(blueProducts)
 ////////////////////PROBLEM 4////////////////////
 /*
   Now you'd like to get them their order total. 
@@ -109,6 +112,10 @@ const blueProducts = saleProducts.filter((e, i, a) => {
 */
 
 //CODE HERE
+const orderTotal = blueProducts.reduce((acc, curr) => {
+  return acc + curr.price
+}, 0)
+
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -139,7 +146,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let helensInfo = Object.assign({}, contactInfo, shippingInfo)
 ////////////////////PROBLEM 6////////////////////
 /*
   Helen has a daughter named Ellen that lives at the same address.
@@ -148,14 +155,14 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let ellensInfo = {...helensInfo}
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
 //CODE HERE
-
+const {email} = ellensInfo;
 ////////////////////PROBLEM 8////////////////////
 /*
   In a single expression (one line), save the zip code and state 
@@ -163,7 +170,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+const {zipCode, state} = ellensInfo;
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
   Use the userInfo object below to complete problems 9-11.
@@ -225,7 +232,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+const shouldAlert = userInfo.settings.alerts
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
@@ -233,7 +240,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+const topic = userInfo.topics[3]
 ////////////////////PROBLEM 11////////////////////
 /*
   Set the value of commenterId below to the userId of the first response to 
@@ -241,7 +248,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+const commenterId = userInfo.comments[1].responses[0].userId
 ////////////////////PROBLEM 12////////////////////
 /*
   Create an object called 'person' that has the following properties. 
